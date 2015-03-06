@@ -1,0 +1,336 @@
+/**
+ * Copyright (C) 2013 Håkon Dale Wågbø. 
+ * All right reserved.
+ * 
+ * This software is the proprietary information of Håkon Dale Wågbø.
+ * Contact: haakon.dw@gmail.com
+ * 
+ * Use, distribution or modification of source 
+ * NOT ALLOWED without approval of copyright holder.
+ * 
+ */
+html{
+    min-height: 100%;
+    font-size: 0.8em;
+}
+body {
+    background-color: #ffffff;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 0;
+    border: 0 !important;
+}
+
+.headline-1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  2.4em;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0 30px;
+    color: inherit;
+}
+.headline-2{
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  1.3em;
+    font-weight: normal;
+    margin: 0 30px;
+    padding: 0px;
+    color: #6E94FF;
+}
+.headline-3{
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  1.3em;
+    font-weight: bold;
+    margin: 0 30px;
+    padding: 0px;
+    color: inherit;
+}
+#wrapper{
+    width:70%;
+    border: 0;
+    margin: 0 auto;
+    background: inherit;
+    min-width: 960px;
+}
+.login-wrapper{
+    text-align: center;
+    margin: 70px auto 150px auto;
+    display: table;
+}
+.login
+{
+    padding: 10px;
+    margin: 0 auto;
+
+}
+#error-wrapper{
+    width: 400px;
+    padding: 5px;
+    margin: 50px auto;
+    text-align: center;
+}
+#top{
+    position: fixed;
+    border: 1px solid #AFAFAF;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: inherit;
+    text-align: left;
+    z-index: 1001;
+    min-width: 960px;
+    /*border-radius:  5px 5px 0px 0px;*/
+    /*-moz-border-radius: 5px 5px 0px 0px;  For Firefox 3.6 and older */ 
+}
+#footer{
+    width: 100%;
+}
+#main{
+    margin: 0px auto 30px auto;
+    padding-top: 65px;
+    /*    width: 965px;*/
+    width: 100%;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-color: #AFAFAF;
+    border-style: solid;
+    border-bottom-width: 1px;
+    border-top-width: 0px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px; /* For Firefox 3.6 and older */ 
+}
+#events{
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+}
+.progress-section{
+    width: 100%;
+    margin-top: 25px;
+}
+.timeline-section,.questions-section{
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+.timeline-section{
+    border: 2px solid #AFAFAF;
+    border-radius: 3px;
+    -moz-border-radius: 3px; /* For Firefox 3.6 and older */
+    overflow: hidden;
+}
+#timeline-wrapper-outer{
+    margin-bottom: 5px;
+}
+#timeline-wrapper{
+    background: #FFFFFF;
+    /*    padding: 0;*/
+}
+#slidedown{
+    /*position: fixed;*/
+    /*display:none;*/ 
+    background-color: #FFFFFF; 
+    margin-left: 15px;
+    margin-right: 15px;
+    z-index: 1000;
+    
+}
+.questions-table{
+    width: 100%;
+    border-spacing: 0;
+}
+.questions-table > thead > tr > th{
+    font-weight: normal;
+    text-align: left;
+    padding: 10px;
+}
+.questions-table > tbody > tr > td{
+    padding: 10px;
+}
+
+.questions-table td:last-child{
+    /*    text-align: center;
+        margin-left: auto;
+        margin-right: auto;*/
+}
+.questions-table td:last-child table{
+    /*margin: 0 auto;*/
+}
+.question-text{
+    /*font-weight: bold;*/
+    /*font-size: 110%;*/
+    white-space: pre-wrap;
+}
+.question-number{
+    /*    background-color: #D5DDF6;
+        border: 1px solid #909090;
+    color: #404040;*/
+    float: left;
+    display: table-cell;
+    padding: 6px 9px;
+
+    border-radius: 2px;
+    /*border-radius: 50%;*/
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+
+    font-size:  115%;
+}
+.timeline-content{
+    margin-left: 35px;
+    margin-right: 35px;
+}
+.question-content{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.question-matrix {
+    padding: 0px;
+    text-align: center;
+}
+.question-matrix tr:first-child th{
+    /*background-color: #C5C5C5;*/
+    /*white-space: nowrap;*/ 
+}
+
+.question-matrix tr:first-child th:first-child{
+    /*background-color: inherit;*/
+}
+
+.question-matrix th, .question-matrix td{
+    padding: 10px;
+}
+.question-matrix th{
+    font-weight: bold;
+}
+.question-matrix tr:nth-child(odd){
+
+}
+.question-matrix tr:nth-child(even){
+    background-color: #EEEFF1;
+}
+label{
+    margin-right: 15px;
+}
+.timeline-event-dot-container.question-selected{
+    background-color: #F59F8E;
+    border-color: #B85A48;
+}
+.timeline-event-dot.question-selected{
+    background-color: #FF0000;
+    border-color: #FF0000;
+}
+.timeline-event-box.question-selected{
+    background-color: #F59F8E;
+    border-color: #B85A48;
+    border-width: 2px;
+}
+.timeline-event-line.question-selected{
+    border-color: #B85A48;
+}
+.timeline-event-range.question-selected{
+    background-color: #F59F8E;
+    border-color: #B85A48;
+    border-width: 2px;
+}
+.timeline-event-entryCluster.question-selected{
+    background-color: #F59F8E;
+    border-color: #B85A48;
+    border-width: 2px;
+}
+#select-events-wrapper{
+    text-align: center;
+}
+.select-events-message-wrapper{
+    margin: 10px 0;
+    text-align: center;
+    color: blue; 
+    font-size: 1.2em;
+    /*list-style-image: url("#{resource['images/16/splashyIcons/information.png']}");*/
+}
+.details-data{
+    display: hidden;
+}
+table.details > tbody > tr > td{
+    vertical-align: top;
+}
+td.continue-button , td.previous-button{
+    width: 100px;
+}
+
+.nowrap, .nowrap .qtip-content {
+    white-space: nowrap;
+}
+
+input.eventsInput{
+    display:none;
+    /*    display: block;
+        width: 100%;*/
+}
+img.eventIcon{
+    max-width: 16px;
+    max-height: 16px;
+}
+
+
+/* OPTIONS */
+.options-grid{
+    width: 80%; 
+    margin: 10px auto;
+}
+
+
+span.help-icon{
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    margin: 0 5px 0 5px;
+    background-image: url("#{resource['images/16/splashyIcons/help.png']}");
+}
+div.ajaxProgressWrapper{
+    width:100px;
+    height:100px;
+    position:fixed;
+    left:50%;
+    bottom:50%;
+    margin: 0 0 0 -50px;
+    z-index: 1001;
+}
+div.ajaxProgress{
+    display: table-cell;
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    
+}
+div.ajaxProgressDialog{
+
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    background: url("#{resource['images/animated-overlay.gif']}");
+    background-color: #ccc;
+    opacity: 0.5;
+}
+
+#dialogs\:showTimlineButton{
+    visibility: hidden;
+}
+
+.month-picker-dialog .ui-datepicker-calendar {
+    display: none;
+}
+.month-picker-dialog .ui-datepicker-current{
+    display: none;
+}

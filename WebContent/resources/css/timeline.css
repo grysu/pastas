@@ -1,0 +1,318 @@
+div.timeline-frame {
+    /*border: 0;*/
+
+    border-bottom: 1px solid #EDEDED;
+    overflow: hidden;
+
+}
+#events{
+    width:100%;
+    border: 0;
+    border-spacing: 0;
+    /*margin: 0;*/
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#events tr{
+    height: 38px;
+    min-height: 38px;
+}
+#events td{
+    border: 1px solid #AFAFAF;
+    border-spacing: 0;
+    padding: 0;
+    
+    /*height: 38px;*/
+}
+#events tr:first-child td{
+    border-top: 0;
+}
+#events tr:last-child td{
+    border-bottom: 0;
+}
+#events tr td:first-child{
+    border-left: 0;
+}
+#events tr td:last-child{
+    border-right: 0;
+}
+
+#events td.lane-title{
+    max-width: 200px;
+    padding-left: 5px;
+    width: 200px;
+    font-weight: bold;
+    background-color: #EEEFF1;
+    color: #000000;
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEFF1', endColorstr='#F9F9F9');
+        background: -webkit-gradient(linear, left top, left bottom, from(#EEEFF1), to(#F9F9F9));
+        background: -moz-linear-gradient(top, #EEEFF1, #F9F9F9);*/
+
+}
+#events div.timeline-frame{
+    background-color: white;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    -moz-border-radius-topleft: 3px;  //For Firefox 3.6 and older  
+    -moz-border-radius-topright: 3px;  //For Firefox 3.6 and older  
+    -moz-border-radius-bottomleft: 0px;  //For Firefox 3.6 and older  
+    -moz-border-radius-bottomright: 0px;  //For Firefox 3.6 and older  
+}
+
+div.timeline-axis {
+    /*background: #D5DDF6;*/
+    border-width: 0px;
+    border-top: 2px solid #AFAFAF;
+    border-style: solid;
+    background-color: #EEEFF1;
+    /*    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEFF1', endColorstr='#F9F9F9');
+        background: -webkit-gradient(linear, left top, left bottom, from(#EEEFF1), to(#F9F9F9));
+        background: -moz-linear-gradient(top, #EEEFF1, #F9F9F9);*/
+}
+
+#trajectories div.timeline-axis{
+    border: 0px;
+}
+div.timeline-groups-axis div.timeline-axis{
+    background: #FFFFFF;
+}
+div.timeline-axis-grid {
+    border-left-style: solid;
+    border-width: 1px;
+}
+div.timeline-axis-grid-minor {
+    border-color: #e5e5e5
+}
+div.timeline-axis-grid-major {
+    border-color: #bfbfbf;
+}
+div.timeline-axis-text {
+    color: #4D4D4D;
+    padding: 3px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+div.timeline-axis-text-minor {
+}
+
+div.timeline-axis-text-major {
+}
+
+div.timeline-event, div.timeline-event-box, 
+div.timeline-event-content, div.timeline-event-dot, 
+div.timeline-event-range, div.timeline-event-dot-container{
+    cursor: pointer;
+}
+
+div.timeline-event {
+    color: #1A1A1A;
+    border-color: #506A8C;
+    background-color: #6584AD;
+    /*background-color: #D5E1F6;*/
+    display: inline-block;
+}
+div.timeline-event:hover{
+    background-color: #FF7F6E;
+    border-color: #B85A48;
+    z-index: 6;
+    opacity: 0.85;
+}
+
+div.timeline-event-selected {
+    /*    border-color: #FFC200;
+        background-color: #FFF785;
+        z-index: 99;*/
+}
+
+div.timeline-event-cluster {
+    /* TODO: use another color or pattern? */
+    background: #97B0F8 url('/images/cluster_bg.png');
+    color: white;
+}
+div.timeline-event-cluster div.timeline-event-dot {
+    border-color: #D5DDF6;
+}
+
+div.timeline-event-box {
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    -moz-border-radius: 15px; /* For Firefox 3.6 and older */
+    opacity: 0.75;
+    z-index: 5;
+    border-color: #7DB1FA;
+    background-color: #BAE3F5;
+}
+
+div.timeline-event-dot {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;  /* For Firefox 3.6 and older */
+}
+
+div.timeline-event-range {
+    /*    background-color: #F59F8E;
+        border-color: #B85A48;*/
+    min-width: 15px;
+    min-height: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;  /* For Firefox 3.6 and older */
+    z-index:4;
+    opacity: 0.75;
+}
+div.timeline-event-range.timeline-event-selected {
+    /*    background-color: #FFF785;
+        border-color: #FFC200;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        -moz-border-radius: 2px;   For Firefox 3.6 and older */
+}
+
+div.timeline-event-range-drag-left {
+    cursor: w-resize;
+    z-index: 1000;
+}
+
+div.timeline-event-range-drag-right {
+    cursor: e-resize;
+    z-index: 1000;
+}
+
+div.timeline-event-entryCluster {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;  /* For Firefox 3.6 and older */
+}
+div.timeline-event-entryCluster-drag-left {
+    cursor: w-resize;
+    z-index: 1000;
+}
+
+div.timeline-event-entryCluster-drag-right {
+    cursor: e-resize;
+    z-index: 1000;
+}
+div.timeline-event-line {
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+
+div.timeline-event-content {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+div.timeline-event-box div.timeline-event-content {
+    min-height:10px;
+    min-width: 10px;
+}
+
+div.timeline-event-range div.timeline-event-content, div.timeline-event-entryCluster div.timeline-event-content{
+    padding: 3px;
+    background-position: 3px center;
+}
+div.timeline-event-box div.timeline-event-content{
+    padding: 3px;
+    background-position: center;
+}
+
+div.timeline-groups-axis {
+    background-color: #F5F5F5;
+    border-color: #BEBEBE;
+    border-width: 2px;
+}
+
+div.timeline-groups-axis-onleft {
+    border-style: none solid none none;
+}
+
+div.timeline-groups-axis-onright {
+    border-style: none none none solid;
+}
+
+div.timeline-groups-text {
+    color: #4D4D4D;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div.timeline-currenttime {
+    background-color: #FF7F6E;
+    width: 2px;
+}
+
+div.timeline-customtime {
+    background-color: #6E94FF;
+    width: 2px;
+    cursor: move;
+}
+
+div.timeline-navigation {
+    font-family: arial;
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+    border: 1px solid #BEBEBE;
+    background-color: #F5F5F5;
+    border-radius: 2px;
+    -moz-border-radius: 2px;  /* For Firefox 3.6 and older */
+}
+
+div.timeline-navigation-new, div.timeline-navigation-delete,
+div.timeline-navigation-zoom-in,  div.timeline-navigation-zoom-out,
+div.timeline-navigation-move-left, div.timeline-navigation-move-right {
+    cursor: pointer;
+    padding: 5px 5px;
+    float: left;
+    text-decoration: none;
+    border-color: #BEBEBE; /* border is used for the separator between new and navigation buttons */
+    width: 16px;
+    height: 16px;
+}
+
+div.timeline-navigation-new {
+    background: url("#{resource['images/16/new.png']}") no-repeat center;
+}
+
+div.timeline-navigation-new-line {
+    border-right: solid 1px;
+}
+
+div.timeline-navigation-delete {
+    padding: 0px;
+    padding-left: 5px;
+    background: url("#{resource['images/16/delete.png']}") no-repeat center;
+}
+
+div.timeline-navigation-zoom-in {
+    background: url("#{resource['images/16/zoomin.png']}") no-repeat center;
+}
+
+div.timeline-navigation-zoom-out {
+    background: url("#{resource['images/16/zoomout.png']}") no-repeat center;
+}
+
+div.timeline-navigation-move-left {
+    background: url("#{resource['images/16/moveleft.png']}") no-repeat center;
+}
+
+div.timeline-navigation-move-right {
+    background: url("#{resource['images/16/moveright.png']}") no-repeat center;
+}

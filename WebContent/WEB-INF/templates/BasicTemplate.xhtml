@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title><ui:insert name="title">PAsTAs</ui:insert></title>
+	<script type='text/javascript' src='http://www.google.com/jsapi'></script>
+	<h:outputScript library="js" name="jquery-1.11.2.js" />
+	<h:outputStylesheet library="css" name="default.css" />
+	<h:outputStylesheet library="css" name="timeline.css" />
+	<h:outputStylesheet library="css" name="jquery.qtip.css" />
+	<h:outputScript library="js" name="timeline-locales.js" />
+	<h:outputScript library="js" name="timeline-no-theme.js" />
+	<h:outputScript library="js" name="timeline.js" />
+	<h:outputScript library="js" name="newpastas.js" />
+	
+</h:head>
+
+<h:body>
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="header.xhtml" />
+		</ui:insert>
+	</div>
+
+
+	<div id="content">
+		<ui:insert name="content">
+		</ui:insert>
+	</div>
+
+	<div id="footer">
+		<ui:insert name="footer">
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</div>
+
+</h:body>
+
+</html>
