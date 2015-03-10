@@ -36,8 +36,6 @@ function setTimelineDates() {
 
 }
 
-
-
 function setContacts(contact) {
 	contacts = jQuery.parseJSON(contact);
 	setTimelineDates();
@@ -49,7 +47,7 @@ function createTimeline() {
 		'locale' : 'no',
 		// layout
 		'width' : '100%',
-//		'height' : '43px',
+		// 'height' : '43px',
 		// 'minHeight' : '500px',
 		'showCurrentTime' : false,
 		'axisOnTop' : true,
@@ -75,19 +73,33 @@ function createTimeline() {
 	data.addColumn('datetime', 'end');
 	data.addColumn('string', 'content');
 	data.addColumn('string', 'group');
+	data.addColumn('string', 'className');
 
 	// load data and create the timeline here
+
 	for (var i = 0; i < contacts.length; i++) {
 		if (contacts[i].startDate === contacts[i].endDate) {
 			data.addRow([ new Date(contacts[i].startDate), , ,
-					contacts[i].service ]);
+					contacts[i].service, checkStrokeDiganose(contacts[i]) ]);
 		} else {
 			data.addRow([ new Date(contacts[i].startDate),
-					new Date(contacts[i].endDate), , contacts[i].service ]);
+					new Date(contacts[i].endDate),, contacts[i].service,
+					checkStrokeDiganose(contacts[i]) ]);
 		}
 	}
 	// Instantiate the timeline object.
 	timeline = new links.Timeline(document.getElementById('timeline'), options);
 	// Draw the timeline with the created data and options
 	timeline.draw(data);
+}
+
+function checkStrokeDiganose(contact) {
+	if (contact.stroke==-1) {
+		return "unknown";
+	} else if (contact.stroke==0) {
+		return "nostroke";
+	} else if (contact.stroke==1) {
+		return "stroke";
+	} 
+	return "";
 }

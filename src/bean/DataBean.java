@@ -1,7 +1,6 @@
 package bean;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -29,7 +28,6 @@ public class DataBean {
 	}
 
 	public void setOnlyStroke(boolean onlyStroke) {
-		contacts = fm.findContacts(pid, onlyStroke);
 		this.onlyStroke = onlyStroke;
 	}
 
@@ -38,7 +36,7 @@ public class DataBean {
 	}
 
 	public void setPid(Long pid) {
-		contacts = fm.findContacts(pid, onlyStroke);
+		contacts = fm.findContacts(pid);
 		this.pid = pid;
 	}
 

@@ -1,3 +1,23 @@
-body {
-	font: 50pt arial;
+
+/* sets different colors on the three types of stroke diagnoses */
+div.stroke {
+	border-color: #ff0000; 
+}
+div.stroke.timeline-event-range {
+	border-color: #ff0000;
+	background-color: #ff8080; 
+}
+div.nostroke {
+	border-color: #00ff00; 
+}
+div.nostroke.timeline-event-range {
+	border-color: #00ff00;
+	background-color: #80ff80; 
+}
+div.unknown {
+	border-color: #0000ff; 
+}
+div.unknown.timeline-event-range {
+	border-color: #0000ff;
+	background-color: #8080ff; 
 }

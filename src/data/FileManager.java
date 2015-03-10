@@ -4,13 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
-
-import data.Contact;
 
 public class FileManager {
 
@@ -22,8 +17,8 @@ public class FileManager {
 	private final String malvikFile = "finito_malvik.csv";
 	private final String melhusFile = "finito_melhus.csv";
 	private final String mgkFile = "finito_mgk.csv";
-	static SimpleDateFormat format = new SimpleDateFormat("yyyy, MM, dd");
-	private static Date date = new Date();
+//	private static SimpleDateFormat format = new SimpleDateFormat("yyyy, MM, dd");
+//	private static Date date = new Date();
 
 	public FileManager() throws Exception {
 		readCsvFiles();
@@ -53,49 +48,40 @@ public class FileManager {
 	 *            An 11 digit long number, identifying the patient.
 	 * @return List containing all contacts of a particular patient.
 	 */
-	public ArrayList<Contact> findContacts(Long pid, boolean onlyStroke) {
+	public ArrayList<Contact> findContacts(Long pid) {
 		ArrayList<Contact> contacts = new ArrayList<Contact>();
 		for (Patient patient : patients) {
-				if (patient.getPid().equals(pid)) {
-					if (!onlyStroke) {
-						return patient.getContacts();
-					} else {
-						for (Contact contact : patient.getContacts()) {
-							if (contact.getStroke() == 1 || contact.getStroke() == -1) {
-								contacts.add(contact);
-							}
-						}
-						return contacts;
-					}
-				}
+			if (patient.getPid().equals(pid)) {
+				return patient.getContacts();
+			}
 		}
 		return contacts;
 	}
 
-//	public ArrayList<Contact> findStroke() throws ParseException {
-//		HashSet<Long> pids = new HashSet<Long>();
-//		HashSet<Long> allPids = new HashSet<Long>();
-//		ArrayList<Contact> validContacts = new ArrayList<Contact>();
-//		date = format.parse("30.06.2010");
-//		for (Contact c : contacts) {
-//			allPids.add(c.getPid());
-//			if (c.getStartDate() != null) {
-//				if (c.getStartDate().before(date) && c.getStroke() == 1) {
-//					pids.add(c.getPid());
-//				}
-//			}
-//		}
-//		System.out.println("All pids: " + allPids.size());
-//		for (Long l : pids) {
-//			allPids.remove(l);
-//		}
-//		System.out.println("Unvalid pids: " + pids.size());
-//		System.out.println("Valid pids: " + allPids.size());
-//		for (Long l : allPids) {
-//			validContacts.addAll(findContacts(l, false));
-//		}
-//		return validContacts;
-//	}
+	// public ArrayList<Contact> findStroke() throws ParseException {
+	// HashSet<Long> pids = new HashSet<Long>();
+	// HashSet<Long> allPids = new HashSet<Long>();
+	// ArrayList<Contact> validContacts = new ArrayList<Contact>();
+	// date = format.parse("30.06.2010");
+	// for (Contact c : contacts) {
+	// allPids.add(c.getPid());
+	// if (c.getStartDate() != null) {
+	// if (c.getStartDate().before(date) && c.getStroke() == 1) {
+	// pids.add(c.getPid());
+	// }
+	// }
+	// }
+	// System.out.println("All pids: " + allPids.size());
+	// for (Long l : pids) {
+	// allPids.remove(l);
+	// }
+	// System.out.println("Unvalid pids: " + pids.size());
+	// System.out.println("Valid pids: " + allPids.size());
+	// for (Long l : allPids) {
+	// validContacts.addAll(findContacts(l, false));
+	// }
+	// return validContacts;
+	// }
 
 	public void readCsvFiles() throws Exception {
 		String[] paths = { folder + helfoFile, folder + stolavFile,

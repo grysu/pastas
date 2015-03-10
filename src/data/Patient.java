@@ -1,6 +1,5 @@
 package data;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Patient {
@@ -37,7 +36,6 @@ public class Patient {
 	}
 	
 	public void convertLine(String line, int type) {
-		SimpleDateFormat format = null;
 		String[] split = line.split(";");
 		pid = Long.valueOf(split[0]).longValue();
 	}

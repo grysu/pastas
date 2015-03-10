@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.joda.time.DateTime;
-import org.joda.time.Period;
 
 public class Contact {
 	private String service;
@@ -193,7 +192,6 @@ public class Contact {
 					"42418671631;Hjertemedisin;14.01.2011 14:14;16.01.2011 12:54;0;8;1;HJERTEMEDISIN 4. ET. TUN 4-5;Sengepost;St.Olavs",
 					1);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
