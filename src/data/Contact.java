@@ -8,59 +8,18 @@ import org.joda.time.DateTime;
 import org.joda.time.Period;
 
 public class Contact {
-	private Long pid;
 	private String service;
 	private Date startDate;
 	private Date endDate;
-	private int stroke;
-	private int ageGroup;
-	private int emergencyLevel;
+	private int stroke = -1;
+	private int emergencyLevel = -1;
 	private String extInfo;
 	private String unit;
 	private String location;
-
-	public Contact(Long pid, String service, Date startDate, int stroke) {
-		super();
-		this.pid = pid;
-		this.service = service;
-		this.startDate = startDate;
-		this.stroke = stroke;
-	}
-
-	public Contact(Long pid, String service, Date startDate, Date endDate) {
-		super();
-		this.pid = pid;
-		this.service = service;
-		this.startDate = startDate;
-		this.endDate = endDate;
-	}
-
-	public Contact(Long pid, String service, Date startDate, Date endDate,
-			int stroke, int ageGroup, int emergencyLevel, String extInfo,
-			String unit, String location) {
-		super();
-		this.pid = pid;
-		this.service = service;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.stroke = stroke;
-		this.ageGroup = ageGroup;
-		this.emergencyLevel = emergencyLevel;
-		this.extInfo = extInfo;
-		this.unit = unit;
-		this.location = location;
-	}
+	private String firstDate = "07.03.2010";
 
 	public Contact(String line, int type) throws Exception {
 		convertLine(line, type);
-	}
-
-	public Long getPid() {
-		return pid;
-	}
-
-	public void setPid(Long pid) {
-		this.pid = pid;
 	}
 
 	public String getService() {
@@ -93,14 +52,6 @@ public class Contact {
 
 	public void setStroke(int stroke) {
 		this.stroke = stroke;
-	}
-
-	public int getAgeGroup() {
-		return ageGroup;
-	}
-
-	public void setAgeGroup(int ageGroup) {
-		this.ageGroup = ageGroup;
 	}
 
 	public int getEmergencyLevel() {
@@ -137,13 +88,20 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [pid=" + pid + ", service=" + service + ", startDate="
-				+ startDate + ", endDate=" + endDate + ", stroke=" + stroke
-				+ ", ageGroup=" + ageGroup + ", emergencyLevel="
-				+ emergencyLevel + ", extInfo=" + extInfo + ", unit=" + unit
-				+ ", location=" + location + "]";
+		return "Contact [service=" + service + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", stroke=" + stroke
+				+ ", emergencyLevel=" + emergencyLevel + ", extInfo=" + extInfo
+				+ ", unit=" + unit + ", location=" + location + "]";
 	}
 
+	/**
+	 * Converts a line from a cvs file to a Contact.
+	 * 
+	 * @param line
+	 *            Text string with a list of parameters divided by semicolons.
+	 * @param type
+	 *            Type of contact. 0=HELFO, 1=St. Olavs Hospital, 2=PLO.
+	 */
 	public void convertLine(String line, int type) throws Exception {
 		SimpleDateFormat format = null;
 		String[] split = line.split(";");
@@ -151,13 +109,12 @@ public class Contact {
 			if (type == 0) {
 				// HELFO - PID, Service, Start, End, Stroke Diagnose
 				format = new SimpleDateFormat("dd.MM.yyyy");
-				pid = Long.valueOf(split[0]).longValue();
 				service = split[1];
 				try {
 					startDate = format.parse(split[2]);
 					endDate = startDate;
 				} catch (ParseException e) {
-					 System.err.println("HELFO, parsing date: " + e);
+					System.err.println("HELFO, parsing date: " + e);
 				}
 				stroke = Integer.parseInt(split[4]);
 			} else if (type == 1) {
@@ -165,50 +122,43 @@ public class Contact {
 				// Diagnose, Age Group, Emergency Level, Extended Information,
 				// Unit, Location
 				format = new SimpleDateFormat("dd.MM.yyyy H:m");
-				pid = Long.valueOf(split[0]).longValue();
 				if (split[1].equalsIgnoreCase("")) {
 					service = split[8];
 				} else {
-				service = split[1];
+					service = split[1];
 				}
 				try {
 					startDate = format.parse(split[2]);
 				} catch (ParseException e) {
-					 System.err.println("St. Olav, parsing start date: " + e);
+					System.err.println("St. Olav, parsing start date: " + e);
 				}
 				try {
 					endDate = format.parse(split[3]);
-					long duration = endDate.getTime()-startDate.getTime();
-					if(duration<86400000){
+					long duration = endDate.getTime() - startDate.getTime();
+					if (duration < 86400000) {
 						endDate = startDate;
 					}
-					
-					
-					
+
 				} catch (ParseException e) {
-					 System.err.println("St. Olav, parsing end date: " + e);
+					System.err.println("St. Olav, parsing end date: " + e);
 				}
 				stroke = Integer.parseInt(split[4]);
-				ageGroup = Integer.parseInt(split[5]);
 				emergencyLevel = Integer.parseInt(split[6]);
 				extInfo = split[7];
 				unit = split[8];
-				if(split.length>9) {
-					location = split[9];					
+				if (split.length > 9) {
+					location = split[9];
 				}
 			} else if (type > 1) {
-				// if (split[0].equals("40060942046")) {
-				// System.out.println(line);
-				// }
 				// Municipality - PID, Service, Start, End
 				format = new SimpleDateFormat("dd.MM.yyyy");
-				pid = Long.valueOf(split[0]).longValue();
 				service = split[1];
 				if (!split[2].equals("") && !split[2].equalsIgnoreCase("null")) {
 					startDate = format.parse(split[2]);
 				} else {
-					// If no start date: set the 07.03.2010 as start date
-					startDate = format.parse("07.03.2010");
+					// If no start date: set the variable firstDate as start
+					// date
+					startDate = format.parse(firstDate);
 				}
 				if (split.length > 3) {
 					if (!split[3].equals("")
@@ -237,15 +187,15 @@ public class Contact {
 		DateTime oldDate = new DateTime(df.parse("01.01.2012"));
 		DateTime newDate = oldDate.minusDays(Math.abs(666));
 		System.out.println(newDate);
-		// Contact c = new Contact("", 0);
-		// try {
-		// c.convertLine(
-		// "42418671631;Hjertemedisin;14.01.2011 14:14;16.01.2011 12:54;0;8;1;HJERTEMEDISIN 4. ET. TUN 4-5;Sengepost;St.Olavs",
-		// 1);
-		// } catch (Exception e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+		Contact c = new Contact("", 0);
+		try {
+			c.convertLine(
+					"42418671631;Hjertemedisin;14.01.2011 14:14;16.01.2011 12:54;0;8;1;HJERTEMEDISIN 4. ET. TUN 4-5;Sengepost;St.Olavs",
+					1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

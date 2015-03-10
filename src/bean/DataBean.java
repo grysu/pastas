@@ -15,16 +15,22 @@ import data.FileManager;
 @SessionScoped
 public class DataBean {
 	private ArrayList<Contact> contacts = new ArrayList<Contact>();
-	private ArrayList<Contact> testData = new ArrayList<Contact>();
 	private FileManager fm = new FileManager();
 	private Gson gson = new Gson();
 	private Long pid;
+	private boolean onlyStroke = false;
 
 	public DataBean() throws Exception {
-		testData.add(new Contact(101L, "Service1", new Date(), 0));
-		testData.add(new Contact(102L, "Service2", new Date(), 0));
-//		contacts = fm.getContacts();
 		pid = 40060942046L;
+	}
+
+	public boolean isOnlyStroke() {
+		return onlyStroke;
+	}
+
+	public void setOnlyStroke(boolean onlyStroke) {
+		contacts = fm.findContacts(pid, onlyStroke);
+		this.onlyStroke = onlyStroke;
 	}
 
 	public Long getPid() {
@@ -32,8 +38,7 @@ public class DataBean {
 	}
 
 	public void setPid(Long pid) {
-		contacts = fm.findContacts(pid);
-//		System.out.println(contacts.size());
+		contacts = fm.findContacts(pid, onlyStroke);
 		this.pid = pid;
 	}
 
@@ -51,17 +56,6 @@ public class DataBean {
 
 	public void setContacts(ArrayList<Contact> contacts) {
 		this.contacts = contacts;
-	}
-
-	public void setTestData(ArrayList<Contact> contacts) {
-		this.testData = contacts;
-	}
-
-	// public ArrayList<Contact> getTestData() {
-	// return testData;
-	// }
-	public String getTestData() {
-		return gson.toJson(testData);
 	}
 
 }
