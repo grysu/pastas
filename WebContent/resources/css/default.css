@@ -21,54 +21,7 @@ body {
     border: 0 !important;
 }
 
-.headline-1 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    font-size:  2.4em;
-    font-weight: bold;
-    padding: 0px;
-    margin: 0 30px;
-    color: inherit;
-}
-.headline-2{
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    font-size:  1.3em;
-    font-weight: normal;
-    margin: 0 30px;
-    padding: 0px;
-    color: #6E94FF;
-}
-.headline-3{
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    font-size:  1.3em;
-    font-weight: bold;
-    margin: 0 30px;
-    padding: 0px;
-    color: inherit;
-}
-#wrapper{
-    width:70%;
-    border: 0;
-    margin: 0 auto;
-    background: inherit;
-    min-width: 960px;
-}
-.login-wrapper{
-    text-align: center;
-    margin: 70px auto 150px auto;
-    display: table;
-}
-.login
-{
-    padding: 10px;
-    margin: 0 auto;
 
-}
-#error-wrapper{
-    width: 400px;
-    padding: 5px;
-    margin: 50px auto;
-    text-align: center;
-}
 #top{
     position: fixed;
     border: 1px solid #AFAFAF;
@@ -186,6 +139,8 @@ body {
 .timeline-content{
     margin-left: 35px;
     margin-right: 35px;
+    overflow: hidden;
+    position: relative;
 }
 .question-content{
     margin-left: 50px;
@@ -322,15 +277,4 @@ div.ajaxProgressDialog{
     background: url("#{resource['images/animated-overlay.gif']}");
     background-color: #ccc;
     opacity: 0.5;
-}
-
-#dialogs\:showTimlineButton{
-    visibility: hidden;
-}
-
-.month-picker-dialog .ui-datepicker-calendar {
-    display: none;
-}
-.month-picker-dialog .ui-datepicker-current{
-    display: none;
 }

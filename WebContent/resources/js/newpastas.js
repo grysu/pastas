@@ -1,5 +1,6 @@
 var timeline;
-var contacts;
+var contacts; // list of contacts for current PID
+var onlyStroke;
 google.load('visualization', '1');
 google.setOnLoadCallback(createTimeline);
 
@@ -9,21 +10,6 @@ var QUARTER_IN_MILLISECONDS = MONTH_IN_MILLISECONDS * 4;
 
 var minDate = new Date(2010, 2, 7);
 var maxDate = new Date(2012, 2, 7);
-
-// var options = {
-// // 'width': '100%',
-// 'height' : 'auto',
-// 'style' : 'dot',
-// 'axisOnTop' : true,
-// // 'cluster': true
-// 'eventMargin' : 5,
-// 'eventMarginAxis' : 0,
-// 'groupsOrder' : false, //alphabetically if true
-// // 'showCurrentTime': true,
-// // 'showNavigation': true,
-// 'zoomMax' : 3157056000000, //100 years
-// 'zoomMin' : 60000
-// };
 
 /**
  * set mindate and maxdate for timeline based on events. This function will take
@@ -43,12 +29,14 @@ function setTimelineDates() {
 				lastdate = new Date(contacts[i].endDate);
 			}
 		}
-        var days = 30;
-        minDate = new Date(firstdate.getTime() - days * DAY_IN_MILLISECONDS);
-        maxDate = new Date(lastdate.getTime() + days * DAY_IN_MILLISECONDS);
+		var days = 30;
+		minDate = new Date(firstdate.getTime() - days * DAY_IN_MILLISECONDS);
+		maxDate = new Date(lastdate.getTime() + days * DAY_IN_MILLISECONDS);
 	}
 
 }
+
+
 
 function setContacts(contact) {
 	contacts = jQuery.parseJSON(contact);
@@ -61,7 +49,8 @@ function createTimeline() {
 		'locale' : 'no',
 		// layout
 		'width' : '100%',
-//		'minHeight' : '500px',
+//		'height' : '43px',
+		// 'minHeight' : '500px',
 		'showCurrentTime' : false,
 		'axisOnTop' : true,
 		'eventMargin' : 10, // minimal margin between events
@@ -72,10 +61,8 @@ function createTimeline() {
 		'showMinorLabels' : true,
 		'showMajorLabels' : true,
 		// interaction
-		// 'selectable': selectable,
+		'selectable' : true,
 		'editable' : false,
-		// 'zoomable': visualizationOptions.zoom,
-		// 'moveable': visualizationOptions.zoom,
 		// time
 		'zoomMin' : DAY_IN_MILLISECONDS, // one day in ms
 		'min' : minDate,
@@ -91,7 +78,6 @@ function createTimeline() {
 
 	// load data and create the timeline here
 	for (var i = 0; i < contacts.length; i++) {
-		// var date = new Date(contacts[i].startDate);
 		if (contacts[i].startDate === contacts[i].endDate) {
 			data.addRow([ new Date(contacts[i].startDate), , ,
 					contacts[i].service ]);
@@ -100,8 +86,8 @@ function createTimeline() {
 					new Date(contacts[i].endDate), , contacts[i].service ]);
 		}
 	}
-	// Instantiate our timeline object.
+	// Instantiate the timeline object.
 	timeline = new links.Timeline(document.getElementById('timeline'), options);
-	// Draw our timeline with the created data and options
+	// Draw the timeline with the created data and options
 	timeline.draw(data);
 }

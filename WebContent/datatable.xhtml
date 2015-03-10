@@ -9,16 +9,27 @@
 
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
 	<ui:define name="content">
+	<h1>PAsTAs - Timeline</h1>
 		<h:form>
-			<h:outputText value="PID"></h:outputText>
-			<h:inputText value="#{dataBean.pid}"></h:inputText>
-			<h:commandButton value="Choose" action="createTimeline()"></h:commandButton>
+			<table>
+				<tr>
+					<td><h:outputText value="PID"></h:outputText></td>
+					<td><h:inputText value="#{dataBean.pid}"></h:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputText value="Only show stroke related diagnoses"></h:outputText></td>
+					<td><h:selectOneRadio id="yesNoRadio"
+							value="#{dataBean.onlyStroke}">
+							<f:selectItem itemValue="#{false}" itemLabel="No" />
+							<f:selectItem itemValue="#{true}" itemLabel="Yes" />
+						</h:selectOneRadio></td>
+				</tr>
+			</table>
+			<h:commandButton value="Choose" action="#"></h:commandButton>
 		</h:form>
 		<h:outputScript>
 			setContacts('#{dataBean.contacts}');
-<!-- 			window.onload=createTimeline(); -->
 		</h:outputScript>
-		<h3>Fiktiv pasient</h3>
 		<div id='timeline'></div>
 	</ui:define>
 </ui:composition>
