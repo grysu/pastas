@@ -1,23 +1,246 @@
-
 /* sets different colors on the three types of stroke diagnoses */
-div.stroke {
-	border-color: #ff0000; 
+/* div.stroke { */
+/* 	border-color: #ff0000; */
+/* } */
+
+/* div.stroke.timeline-event-range { */
+/* 	border-color: #ff0000; */
+/* 	background-color: #ff8080; */
+/* } */
+
+/* div.nostroke { */
+/* 	border-color: #00ff00; */
+/* } */
+
+/* div.nostroke.timeline-event-range { */
+/* 	border-color: #00ff00; */
+/* 	background-color: #80ff80; */
+/* } */
+
+/* div.unknown { */
+/* 	border-color: #0000ff; */
+/* } */
+
+/* div.unknown.timeline-event-range { */
+/* 	border-color: #0000ff; */
+/* 	background-color: #8080ff; */
+/* } */
+
+div.groupA {
+	border-color: #ff8080;	
 }
-div.stroke.timeline-event-range {
+div.groupA.timeline-event-range {
+	border-color: #ff8080;
+	background-color: #ff8080;
+}
+
+div.groupB {
+	border-color: #80ff80;	
+}
+div.groupB.timeline-event-range {
+	border-color: #80ff80;
+	background-color: #80ff80;
+}
+
+div.groupC {
+	border-color: #0080ff;	
+}
+div.groupC.timeline-event-range {
+	border-color: #0080ff;
+	background-color: #0080ff;
+}
+
+div.groupD {
+	border-color: #ff0000;	
+}
+div.groupD.timeline-event-range {
 	border-color: #ff0000;
-	background-color: #ff8080; 
+	background-color: #ff0000;
 }
-div.nostroke {
-	border-color: #00ff00; 
+
+div.groupE {
+	border-color: #800040;	
 }
-div.nostroke.timeline-event-range {
-	border-color: #00ff00;
-	background-color: #80ff80; 
+div.groupE.timeline-event-range {
+	border-color: #800040;
+	background-color: #800040;
 }
-div.unknown {
-	border-color: #0000ff; 
+
+div.groupF {
+	border-color: #408080;	
 }
-div.unknown.timeline-event-range {
-	border-color: #0000ff;
-	background-color: #8080ff; 
+div.groupF.timeline-event-range {
+	border-color: #408080;
+	background-color: #408080;
+}
+
+div.groupG {
+	border-color: #8080ff;	
+}
+div.groupG.timeline-event-range {
+	border-color: #8080ff;
+	background-color: #8080ff;
+}
+
+div.groupH {
+	border-color: #c90c1a;	
+}
+div.groupH.timeline-event-range {
+	border-color: #c90c1a;
+	background-color: #c90c1a;
+}
+
+div.groupI {
+	border-color: #80ffff;	
+}
+div.groupI.timeline-event-range {
+	border-color: #80ffff;
+	background-color: #80ffff;
+}
+
+div.groupJ {
+	border-color: #ff80ff;	
+}
+div.groupJ.timeline-event-range {
+	border-color: #ff80ff;
+	background-color: #ff80ff;
+}
+
+div.groupK {
+	border-color: #ff8040;	
+}
+div.groupK.timeline-event-range {
+	border-color: #ff8040;
+	background-color: #ff8040;
+}
+
+div.groupL {
+	border-color: #400080;	
+}
+div.groupL.timeline-event-range {
+	border-color: #400080;
+	background-color: #400080;
+}
+
+div.groupM {
+	border-color: #808000;	
+}
+div.groupM.timeline-event-range {
+	border-color: #808000;
+	background-color: #808000;
+}
+
+div.groupN {
+	border-color: #f9a904;	
+}
+div.groupN.timeline-event-range {
+	border-color: #f9a904;
+	background-color: #f9a904;
+}
+
+div.groupO {
+	border-color: #b5da7c;	
+}
+div.groupO.timeline-event-range {
+	border-color: #b5da7c;
+	background-color: #b5da7c;
+}
+
+div.groupP {
+	border-color: #1bcb66;	
+}
+div.groupP.timeline-event-range {
+	border-color: #1bcb66;
+	background-color: #1bcb66;
+}
+
+div.groupQ {
+	border-color: #2d3c53;	
+}
+div.groupQ.timeline-event-range {
+	border-color: #2d3c53;
+	background-color: #2d3c53;
+}
+
+div.groupR {
+	border-color: #7c036a;	
+}
+div.groupR.timeline-event-range {
+	border-color: #7c036a;
+	background-color: #7c036a;
+}
+
+div.groupS {
+	border-color: #aed7d9;	
+}
+div.groupS.timeline-event-range {
+	border-color: #aed7d9;
+	background-color: #aed7d9;
+}
+
+div.groupT {
+	border-color: #008000;	
+}
+div.groupT.timeline-event-range {
+	border-color: #008000;
+	background-color: #008000;
+}
+
+div.groupU {
+	border-color: #8341cb;	
+}
+div.groupU.timeline-event-range {
+	border-color: #8341cb;
+	background-color: #8341cb;
+}
+
+div.groupV {
+	border-color: #800080;	
+}
+div.groupV.timeline-event-range {
+	border-color: #800080;
+	background-color: #800080;
+}
+
+div.groupW {
+	border-color: #804000;	
+}
+div.groupW.timeline-event-range {
+	border-color: #804000;
+	background-color: #804000;
+}
+
+div.groupX {
+	border-color: #ff0080;	
+}
+div.groupX.timeline-event-range {
+	border-color: #ff0080;
+	background-color: #ff0080;
+}
+
+div.groupY {
+	border-color: #004080;	
+}
+div.groupY.timeline-event-range {
+	border-color: #004080;
+	background-color: #004080;
+}
+
+div.groupZ {
+	border-color: #6c3213;	
+}
+div.groupZ.timeline-event-range {
+	border-color: #6c3213;
+	background-color: #6c3213;
+}
+
+div.group0 {
+	border-color: #c90c1a;	
+}
+div.group0.timeline-event-range {
+	border-color: #c90c1a;
+	background-color: #c90c1a;
+}
+div.selected {
+	border-color: yellow;
 }

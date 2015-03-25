@@ -10,23 +10,26 @@ import java.util.HashSet;
 public class FileManager {
 
 	private ArrayList<Patient> patients = new ArrayList<Patient>();
-	private final String folder = "E:/test/";
+	private final String folder = "E:/test/v2/";
 	private final String helfoFile = "finito_helfo.csv";
 	private final String stolavFile = "finito_stolav.csv";
 	private final String trdFile = "finito_trondheim.csv";
 	private final String malvikFile = "finito_malvik.csv";
 	private final String melhusFile = "finito_melhus.csv";
 	private final String mgkFile = "finito_mgk.csv";
+	
+	private final String CSV_split = ";";
 //	private static SimpleDateFormat format = new SimpleDateFormat("yyyy, MM, dd");
 //	private static Date date = new Date();
 
 	public FileManager() throws Exception {
 		readCsvFiles();
+		writeStatistics();
 	}
 
 	public static void main(String[] args) throws Exception {
 		FileManager fm = new FileManager();
-		fm.writeStatistics();
+//		fm.readPLOFiles();
 		// fm.findStroke();
 		// System.out.println(fm.getContacts().get(0));
 		// fm.printContacts(40060942046L);
@@ -84,25 +87,27 @@ public class FileManager {
 	// }
 
 	public void readCsvFiles() throws Exception {
+		System.out.println("Reading CSV files");
 		String[] paths = { folder + helfoFile, folder + stolavFile,
 				folder + trdFile, folder + malvikFile, folder + melhusFile,
 				folder + mgkFile };
 
 		BufferedReader br = null;
 		for (int i = 0; i < paths.length; i++) {
+			System.out.println("Reading " + paths[i] );
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(
 					new File(paths[i]))));
 			String line = br.readLine();
 			while ((line = br.readLine()) != null) {
 				boolean newPatient = true;
 				String[] split = line.split(";");
-				Long pid = Long.valueOf(split[0]).longValue();
+				Long pid = findPid(split, i);
 				for (Patient patient : patients) {
 					if (patient.getPid().equals(pid)) {
 						if (patient.getAgeGroup() == -1 && i == 1) {
-							patient.setAgeGroup(Integer.parseInt(split[5]));
+							patient.setAgeGroup(Integer.parseInt(split[11]));
 						}
-						patient.getContacts().add(new Contact(line, i));
+						patient.getContacts().add(new Contact(split, i));
 						newPatient = false;
 					}
 				}
@@ -110,14 +115,45 @@ public class FileManager {
 
 					Patient p = new Patient(pid);
 					if (i == 1) {
-						p.setAgeGroup(Integer.parseInt(split[5]));
+						p.setAgeGroup(Integer.parseInt(split[11]));
 					}
+					p.getContacts().add(new Contact(split, i));
 					patients.add(p);
 				}
 			}
 		}
 	}
+	
+	public void readPLOFiles() throws Exception {
+		System.out.println("Reading CSV files");
+		String[] paths = {folder + trdFile, folder + malvikFile, folder + melhusFile,
+				folder + mgkFile };
 
+		BufferedReader br = null;
+		for (int i = 0; i < paths.length; i++) {
+			System.out.println("Reading " + paths[i] );
+			Patient p = new Patient(null);
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(
+					new File(paths[i]))));
+			String line = br.readLine();
+			while ((line = br.readLine()) != null) {
+				String[] split = line.split(";");
+				p.getContacts().add(new Contact(split, i+2));
+			}
+		}
+	}
+	
+	
+	public Long findPid(String[] split, int type) {
+		if(type==0) {
+			return Long.valueOf(split[1]).longValue();
+		} else if (type==1) {
+			return Long.valueOf(split[4]).longValue();
+		} else {
+			return Long.valueOf(split[0]).longValue();
+		}
+	}
+	
 	public void writeStatistics() {
 		HashSet<String> uniquePlaces = new HashSet<String>();
 		int contacts = 0;

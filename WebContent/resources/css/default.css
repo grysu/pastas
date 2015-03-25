@@ -9,272 +9,306 @@
  * NOT ALLOWED without approval of copyright holder.
  * 
  */
-html{
-    min-height: 100%;
-    font-size: 0.8em;
+html {
+	min-height: 100%;
+	font-size: 0.8em;
 }
+
 body {
-    background-color: #ffffff;
-    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    color: #000000;  
-    margin: 0;
-    border: 0 !important;
+	background-color: #ffffff;
+	font-family: Verdana, "Verdana CE", Arial, "Arial CE",
+		"Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+	color: #000000;
+	margin: 0;
+	border: 0 !important;
 }
 
-
-#top{
-    position: fixed;
-    border: 1px solid #AFAFAF;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    width: inherit;
-    text-align: left;
-    z-index: 1001;
-    min-width: 960px;
-    /*border-radius:  5px 5px 0px 0px;*/
-    /*-moz-border-radius: 5px 5px 0px 0px;  For Firefox 3.6 and older */ 
-}
-#footer{
-    width: 100%;
-}
-#main{
-    margin: 0px auto 30px auto;
-    padding-top: 65px;
-    /*    width: 965px;*/
-    width: 100%;
-    background-color: #FFFFFF;
-    color: #000000;
-    border-color: #AFAFAF;
-    border-style: solid;
-    border-bottom-width: 1px;
-    border-top-width: 0px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-radius: 0px 0px 5px 5px;
-    -moz-border-radius: 0px 0px 5px 5px; /* For Firefox 3.6 and older */ 
-}
-#events{
-    border-collapse: collapse;
-    padding: 0;
-    margin: 0;
-}
-.progress-section{
-    width: 100%;
-    margin-top: 25px;
-}
-.timeline-section,.questions-section{
-
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-
-}
-.timeline-section{
-    border: 2px solid #AFAFAF;
-    border-radius: 3px;
-    -moz-border-radius: 3px; /* For Firefox 3.6 and older */
-    overflow: hidden;
-}
-#timeline-wrapper-outer{
-    margin-bottom: 5px;
-}
-#timeline-wrapper{
-    background: #FFFFFF;
-    /*    padding: 0;*/
-}
-#slidedown{
-    /*position: fixed;*/
-    /*display:none;*/ 
-    background-color: #FFFFFF; 
-    margin-left: 15px;
-    margin-right: 15px;
-    z-index: 1000;
-    
-}
-.questions-table{
-    width: 100%;
-    border-spacing: 0;
-}
-.questions-table > thead > tr > th{
-    font-weight: normal;
-    text-align: left;
-    padding: 10px;
-}
-.questions-table > tbody > tr > td{
-    padding: 10px;
+#top {
+	position: fixed;
+	border: 1px solid #AFAFAF;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	width: inherit;
+	text-align: left;
+	z-index: 1001;
+	min-width: 960px;
+	/*border-radius:  5px 5px 0px 0px;*/
+	/*-moz-border-radius: 5px 5px 0px 0px;  For Firefox 3.6 and older */
 }
 
-.questions-table td:last-child{
-    /*    text-align: center;
+#footer {
+	width: 100%;
+}
+
+#main {
+	margin: 0px auto 30px auto;
+	padding-top: 65px;
+	/*    width: 965px;*/
+	width: 100%;
+	background-color: #FFFFFF;
+	color: #000000;
+	border-color: #AFAFAF;
+	border-style: solid;
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px; /* For Firefox 3.6 and older */
+}
+
+#events {
+	border-collapse: collapse;
+	padding: 0;
+	margin: 0;
+}
+
+.progress-section {
+	width: 100%;
+	margin-top: 25px;
+}
+
+.timeline-section, .questions-section {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.timeline-section {
+	border: 2px solid #AFAFAF;
+	border-radius: 3px;
+	-moz-border-radius: 3px; /* For Firefox 3.6 and older */
+	overflow: hidden;
+}
+
+#timeline-wrapper-outer {
+	margin-bottom: 5px;
+}
+
+#timeline-wrapper {
+	background: #FFFFFF;
+	/*    padding: 0;*/
+}
+
+#slidedown {
+	/*position: fixed;*/
+	/*display:none;*/
+	background-color: #FFFFFF;
+	margin-left: 15px;
+	margin-right: 15px;
+	z-index: 1000;
+}
+
+.questions-table {
+	width: 100%;
+	border-spacing: 0;
+}
+
+.questions-table>thead>tr>th {
+	font-weight: normal;
+	text-align: left;
+	padding: 10px;
+}
+
+.questions-table>tbody>tr>td {
+	padding: 10px;
+}
+
+.questions-table td:last-child {
+	/*    text-align: center;
         margin-left: auto;
         margin-right: auto;*/
+	
 }
-.questions-table td:last-child table{
-    /*margin: 0 auto;*/
+
+.questions-table td:last-child table {
+	/*margin: 0 auto;*/
+	
 }
-.question-text{
-    /*font-weight: bold;*/
-    /*font-size: 110%;*/
-    white-space: pre-wrap;
+
+.question-text {
+	/*font-weight: bold;*/
+	/*font-size: 110%;*/
+	white-space: pre-wrap;
 }
-.question-number{
-    /*    background-color: #D5DDF6;
+
+.question-number {
+	/*    background-color: #D5DDF6;
         border: 1px solid #909090;
     color: #404040;*/
-    float: left;
-    display: table-cell;
-    padding: 6px 9px;
+	float: left;
+	display: table-cell;
+	padding: 6px 9px;
+	border-radius: 2px;
+	/*border-radius: 50%;*/
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 115%;
+}
 
-    border-radius: 2px;
-    /*border-radius: 50%;*/
-    text-align: center;
-    vertical-align: middle;
-    font-weight: bold;
+.timeline-content {
+	margin-left: 35px;
+	margin-right: 35px;
+	overflow: hidden;
+	position: relative;
+}
 
-    font-size:  115%;
+.question-content {
+	margin-left: 50px;
+	margin-right: 50px;
 }
-.timeline-content{
-    margin-left: 35px;
-    margin-right: 35px;
-    overflow: hidden;
-    position: relative;
-}
-.question-content{
-    margin-left: 50px;
-    margin-right: 50px;
-}
+
 .question-matrix {
-    padding: 0px;
-    text-align: center;
-}
-.question-matrix tr:first-child th{
-    /*background-color: #C5C5C5;*/
-    /*white-space: nowrap;*/ 
+	padding: 0px;
+	text-align: center;
 }
 
-.question-matrix tr:first-child th:first-child{
-    /*background-color: inherit;*/
+.question-matrix tr:first-child th {
+	/*background-color: #C5C5C5;*/
+	/*white-space: nowrap;*/
+	
 }
 
-.question-matrix th, .question-matrix td{
-    padding: 10px;
+.question-matrix tr:first-child th:first-child {
+	/*background-color: inherit;*/
+	
 }
-.question-matrix th{
-    font-weight: bold;
-}
-.question-matrix tr:nth-child(odd){
 
+.question-matrix th, .question-matrix td {
+	padding: 10px;
 }
-.question-matrix tr:nth-child(even){
-    background-color: #EEEFF1;
+
+.question-matrix th {
+	font-weight: bold;
 }
-label{
-    margin-right: 15px;
+
+.question-matrix tr:nth-child(odd) {
+	
 }
-.timeline-event-dot-container.question-selected{
-    background-color: #F59F8E;
-    border-color: #B85A48;
+
+.question-matrix tr:nth-child(even) {
+	background-color: #EEEFF1;
 }
-.timeline-event-dot.question-selected{
-    background-color: #FF0000;
-    border-color: #FF0000;
+
+label {
+	margin-right: 15px;
 }
-.timeline-event-box.question-selected{
-    background-color: #F59F8E;
-    border-color: #B85A48;
-    border-width: 2px;
+
+.timeline-event-dot-container.question-selected {
+	background-color: #F59F8E;
+	border-color: #B85A48;
 }
-.timeline-event-line.question-selected{
-    border-color: #B85A48;
+
+.timeline-event-dot.question-selected {
+	background-color: #FF0000;
+	border-color: #FF0000;
 }
-.timeline-event-range.question-selected{
-    background-color: #F59F8E;
-    border-color: #B85A48;
-    border-width: 2px;
+
+.timeline-event-box.question-selected {
+	background-color: #F59F8E;
+	border-color: #B85A48;
+	border-width: 2px;
 }
-.timeline-event-entryCluster.question-selected{
-    background-color: #F59F8E;
-    border-color: #B85A48;
-    border-width: 2px;
+
+.timeline-event-line.question-selected {
+	border-color: #B85A48;
 }
-#select-events-wrapper{
-    text-align: center;
+
+.timeline-event-range.question-selected {
+	background-color: #F59F8E;
+	border-color: #B85A48;
+	border-width: 2px;
 }
-.select-events-message-wrapper{
-    margin: 10px 0;
-    text-align: center;
-    color: blue; 
-    font-size: 1.2em;
-    /*list-style-image: url("#{resource['images/16/splashyIcons/information.png']}");*/
+
+.timeline-event-entryCluster.question-selected {
+	background-color: #F59F8E;
+	border-color: #B85A48;
+	border-width: 2px;
 }
-.details-data{
-    display: hidden;
+
+#select-events-wrapper {
+	text-align: center;
 }
-table.details > tbody > tr > td{
-    vertical-align: top;
+
+.select-events-message-wrapper {
+	margin: 10px 0;
+	text-align: center;
+	color: blue;
+	font-size: 1.2em;
+	/*list-style-image: url("#{resource['images/16/splashyIcons/information.png']}");*/
 }
-td.continue-button , td.previous-button{
-    width: 100px;
+
+.details-data {
+	display: hidden;
+}
+
+table.details>tbody>tr>td {
+	vertical-align: top;
+}
+
+td.continue-button, td.previous-button {
+	width: 100px;
 }
 
 .nowrap, .nowrap .qtip-content {
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
-input.eventsInput{
-    display:none;
-    /*    display: block;
+input.eventsInput {
+	display: none;
+	/*    display: block;
         width: 100%;*/
 }
-img.eventIcon{
-    max-width: 16px;
-    max-height: 16px;
-}
 
+img.eventIcon {
+	max-width: 16px;
+	max-height: 16px;
+}
 
 /* OPTIONS */
-.options-grid{
-    width: 80%; 
-    margin: 10px auto;
+.options-grid {
+	width: 80%;
+	margin: 10px auto;
 }
 
+span.help-icon {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 5px 0 5px;
+	background-image: url("#{resource['images/16/splashyIcons/help.png']}");
+}
 
-span.help-icon{
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    margin: 0 5px 0 5px;
-    background-image: url("#{resource['images/16/splashyIcons/help.png']}");
+div.ajaxProgressWrapper {
+	width: 100px;
+	height: 100px;
+	position: fixed;
+	left: 50%;
+	bottom: 50%;
+	margin: 0 0 0 -50px;
+	z-index: 1001;
 }
-div.ajaxProgressWrapper{
-    width:100px;
-    height:100px;
-    position:fixed;
-    left:50%;
-    bottom:50%;
-    margin: 0 0 0 -50px;
-    z-index: 1001;
-}
-div.ajaxProgress{
-    display: table-cell;
-    width: 100px;
-    height: 100px;
-    vertical-align: middle;
-    text-align: center;
-    background: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    
-}
-div.ajaxProgressDialog{
 
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-    height: 20px;
-    background: url("#{resource['images/animated-overlay.gif']}");
-    background-color: #ccc;
-    opacity: 0.5;
+div.ajaxProgress {
+	display: table-cell;
+	width: 100px;
+	height: 100px;
+	vertical-align: middle;
+	text-align: center;
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+}
+
+div.ajaxProgressDialog {
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	height: 20px;
+	background: url("#{resource['images/animated-overlay.gif']}");
+	background-color: #ccc;
+	opacity: 0.5;
 }

@@ -101,31 +101,6 @@ function drawVisualization() {
         timelines = new Array();
         // specify options
         var selectable = false;
-//        if (isEventQuestion()) {
-//            selectable = true;
-//            // Set question-selected style to previously selected events
-//            if (selections !== undefined) {
-//                for (var i = 0; i < selections.length; i++) {
-//                    var event = findEventById(selections[i]);
-//                    if (event !== null) {
-//                        var className = event["className"];
-//                        var newClassName;
-//                        if (className === undefined) {
-//                            newClassName = "question-selected";
-//                            event["className"] = newClassName;
-//                        } else if (className.indexOf("question-selected") === -1) {
-//                            newClassName = className + " question-selected";
-//                            event["className"] = newClassName;
-//                        }
-//
-//                    } else {
-//
-//                    }
-//                }
-//                $('span.eventsInputCount:eq(0)').html(selections.length);
-//            }
-//        }
-//        setTimelineDates();
         var options = {
             //localization
             'locale': 'no',
@@ -269,7 +244,6 @@ function drawVisualization() {
 onResize = function() {
 
     redrawTimelines();
-//    timelines[i].redraw();
 };
 $(window).bind('resize', onResize);
 function redrawTimelines() {

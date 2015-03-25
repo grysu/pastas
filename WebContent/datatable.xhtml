@@ -17,19 +17,28 @@
 				</tr>
 				<tr>
 					<td><h:outputText value="Only show stroke related diagnoses"></h:outputText></td>
-					<td><h:selectOneRadio id="yesNoRadio"
-							value="#{dataBean.onlyStroke}">
+					<td><h:selectOneRadio id="stroke"
+							value="#{dataBean.onlyStroke}" onchange="strokeDiagnose()">
 							<f:selectItem itemValue="#{false}" itemLabel="No" />
 							<f:selectItem itemValue="#{true}" itemLabel="Yes" />
 						</h:selectOneRadio></td>
 				</tr>
+				<tr>
+					<td><h:outputText value="Group by"></h:outputText></td>
+					<td><h:selectOneRadio id="grouping"
+							value="#{dataBean.diagnoseGroup}" onchange="changeGrouping()">
+							<f:selectItem itemValue="#{false}" itemLabel="Diagnose" />
+							<f:selectItem itemValue="#{true}" itemLabel="Service" />
+						</h:selectOneRadio></td>
+				</tr>
 			</table>
-			<h:commandButton value="Choose" action="#"></h:commandButton>
+			<h:commandButton value="Send" action="#"></h:commandButton>
 		</h:form>
 		<h:outputScript>
 			setContacts('#{dataBean.contacts}');
 		</h:outputScript>
 		<div id='timeline'></div>
+		<div id='info'></div>
 	</ui:define>
 </ui:composition>
 </html>

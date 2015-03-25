@@ -18,9 +18,10 @@ public class DataBean {
 	private Gson gson = new Gson();
 	private Long pid;
 	private boolean onlyStroke = false;
+	private boolean diagnoseGroup = false;
 
 	public DataBean() throws Exception {
-		pid = 40060942046L;
+		pid = 41199039023L;
 	}
 
 	public boolean isOnlyStroke() {
@@ -31,12 +32,25 @@ public class DataBean {
 		this.onlyStroke = onlyStroke;
 	}
 
+	public boolean isDiagnoseGroup() {
+		return diagnoseGroup;
+	}
+
+	public void setDiagnoseGroup(boolean diagnoseGroup) {
+		this.diagnoseGroup = diagnoseGroup;
+	}
+
 	public Long getPid() {
 		return pid;
 	}
 
 	public void setPid(Long pid) {
 		contacts = fm.findContacts(pid);
+		for (int i=0;i<contacts.size();i++) {
+			System.out.println(i + ": " + contacts.get(i));
+		}
+		System.out.println("Number of contacts: " + contacts.size());
+		System.out.println("PID: " + pid);
 		this.pid = pid;
 	}
 
